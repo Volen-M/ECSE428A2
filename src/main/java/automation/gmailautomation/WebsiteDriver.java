@@ -51,7 +51,7 @@ public class WebsiteDriver {
 		webEl.sendKeys(string);
 		File file = new File(string);
 		System.out.println(file.length()/1024);
-		Thread.sleep(file.length()/1024*1000/3);
+		Thread.sleep(file.length()/1024*1000/3+3000);
 
 
 	}
@@ -61,6 +61,7 @@ public class WebsiteDriver {
 		r.keyPress(KeyEvent.VK_ENTER);
 		r.keyRelease(KeyEvent.VK_ENTER);
 		r.keyRelease(KeyEvent.VK_CONTROL);
+		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector(".b8 > div:nth-child(1) > div:nth-child(2)"))));
 		wait.until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".b8 > div:nth-child(1) > div:nth-child(2)"))));
 	}
 	
