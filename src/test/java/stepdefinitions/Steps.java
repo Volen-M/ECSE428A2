@@ -38,8 +38,18 @@ public class Steps {
     public void logonEmail() {
     	WebsiteDriver.logInToGmail(driver, wait, "expprofile2@gmail.com", "accountpassword2");
     }
-	
-    @When("^I press send after I fill the recipient as \"(.*)\", subject and insert the mcgill image$")
+		
+	 @When("^I press compose and send after I fill an invalid recipient$")
+	public void sendfail() {
+	   try {
+		   WebsiteDriver.setupMail(driver, wait, "\\img\\mcgill.jpg", "_420?", "Test_Email");
+	   }
+	   catch (Exception e) {
+		   Assert.assertFalse(true);
+	   }
+	}
+	    
+    @When("^I press compose and send after I fill the recipient as \"(.*)\", subject and insert the mcgill image$")
     public void mcgill(String query) {
     	try {
     		WebsiteDriver.setupMail(driver, wait, "\\img\\mcgill.jpg", query, "Test_Email");
@@ -48,8 +58,8 @@ public class Steps {
     		Assert.assertFalse(true);
     	}
     }
-
-    @When("^I press send after I fill the recipient as \"(.*)\", subject and insert the mcgill2 image$")
+    
+    @When("^I press compose and send after I fill the recipient as \"(.*)\", subject and insert the mcgill2 image$")
     public void mcgill2(String query) {
     	try {
     		WebsiteDriver.setupMail(driver, wait, "\\img\\mcgill2.png", query, "Test_Email");
@@ -59,7 +69,7 @@ public class Steps {
     	}
     }
     
-    @When("^I press send after I fill the recipient as \"(.*)\", subject and insert the mcgill3 image$")
+    @When("^I press compose and send after I fill the recipient as \"(.*)\", subject and insert the mcgill3 image$")
     public void mcgill3(String query) {
     	try {
     		WebsiteDriver.setupMail(driver, wait, "\\img\\mcgill3.png", query, "Test_Email");

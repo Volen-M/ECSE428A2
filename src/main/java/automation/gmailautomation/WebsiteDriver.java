@@ -23,19 +23,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class WebsiteDriver {
 
 	public static void main(String[] args) throws InterruptedException, AWTException {
-		//sendMail();
-		FirefoxDriver driver = setUpFireFoxDriver();
-		WebDriverWait wait = setUpWaitDriver(driver);
-		
-		logInToGmail(driver, wait, "expprofile1@gmail.com", "accountpassword1");
-		setupMail(driver, wait, "\\img\\mcgill.jpg", "expprofile2@gmail.com", "Test_Email");
-		sendMail(driver, wait);
 
-//		driver = setUpFireFoxDriver();
-//		wait = setUpWaitDriver(driver);
-//		logInToGmail(driver, wait, "expprofile2@gmail.com", "accountpassword2");
-//		System.out.println(checkFirstMail( driver,  wait));
-		//"\\img\\mcgill.jpg"
 	}
 	
 	public static void setupMail(FirefoxDriver driver, WebDriverWait wait, String imagePath, String emailRecipient, String emailSubject) throws InterruptedException {
